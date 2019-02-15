@@ -3,11 +3,13 @@ for(var i = 0; i < buttons.length; i++){
   buttons[i].addEventListener("click", function(){
     var buttonIn = this.innerHTML;
     makeSound(buttonIn);
+    buttonAnimation(buttonIn);
   });
 }
 
 document.addEventListener("keydown", function(e){
   makeSound(event.key);
+  buttonAnimation(event.key);
 })
 function makeSound(key){
   switch (key) {
@@ -42,3 +44,11 @@ function makeSound(key){
     default:console.log('key was clicked');
 }
 }
+function buttonAnimation(currentKey){
+    var activeButton = document.querySelector(currentKey);
+    activeButton.classList.add("pressed")
+
+   setTimeout function(){
+   activeButton.classlist.remove("pressed")
+   },100)
+   }
